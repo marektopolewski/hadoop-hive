@@ -1,0 +1,10 @@
+SELECT ss_store_sk, SUM(ss_net_profit) AS profit
+FROM store_sales_1g
+WHERE ss_store_sk IS NOT NULL 
+	and ss_net_profit IS NOT NULL 
+	and ss_sold_date_sk IS NOT NULL 
+	and ss_sold_date_sk >= 2451457 
+	and ss_sold_date_sk <= 2451813
+GROUP BY ss_store_sk
+ORDER BY profit DESC
+LIMIT 3;
